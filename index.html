@@ -18,18 +18,23 @@
     <div id="header">
         <div class="container">
 
-            <nav id="slidemenu">
+            <nav>
                 <a href="#home"><img class="logo" src="images/logo.png" alt=""></a>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#service">Service</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    
-                    <i class="fas fa-times" onclick="closemenu()" ></i>
+
+                <ul class="nav">
+                    <li class="nav-link"><a href="#home">Home</a></li>
+                    <li class="nav-link"><a href="#about">About</a></li>
+                    <li class="nav-link"><a href="#service">Service</a></li>
+                    <li class="nav-link"><a href="#portfolio">Portfolio</a></li>
+                    <li class="nav-link"><a href="#contact">Contact</a></li>
                 </ul>
-                <i class="fas fa-bars" onclick="openmenu()"></i>
+
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                
             </nav>
 
             <div class="content">
@@ -130,7 +135,7 @@
                         <h3>Online App</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nihil? Explicabo velit harum
                             ut voluptas!</p>
-                        <a href="E"><i class="fas fa-external-link-alt"></i></a>
+                        <a href=""><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
 
@@ -140,7 +145,7 @@
                         <h3>Online App</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nihil? Explicabo velit harum
                             ut voluptas!</p>
-                        <a href="E"><i class="fas fa-external-link-alt"></i></a>
+                        <a href=""><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
 
@@ -150,7 +155,7 @@
                         <h3>Online App</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nihil? Explicabo velit harum
                             ut voluptas!</p>
-                        <a href="E"><i class="fas fa-external-link-alt"></i></a>
+                        <a href=""><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -227,16 +232,20 @@
 
 
         // responsive navigation
-        let sidemenu = document.getElementById("slidemenu");
+       const hamburger = document.querySelector(".hamburger");
+       const nav = document.querySelector(".nav");
 
-        let openmenu = () => {
-            sidemenu.style.right = "0px";
-        }
+       hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        nav.classList.toggle("active");
+       })
 
-        let closemenu = () =>  {
-            sidemenu.style.right = "-200px";
+       document.querySelectorAll(".nav-link").forEach(n => n.addEventListener(
+        "click", () => {
+            hamburger.classList.remove("active");
+            nav.classList.remove("active");
         }
-        
+       ))
 
     </script>
 </body>
